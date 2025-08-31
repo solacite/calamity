@@ -1,6 +1,6 @@
 ﻿define e = Character("Elias")
 define mc = Character("[player_name]")
-define n = Character(None, what_style=renpy.style.say_thought)
+define n = Character("")
 
 default player_name = ("XXX")
 
