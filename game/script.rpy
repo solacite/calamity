@@ -1,5 +1,6 @@
 ﻿define e = Character("Elias")
 define mc = Character("[player_name]")
+define n = Character(None, what_style="italic_text")
 
 default player_name = ("XXX")
 
@@ -29,12 +30,65 @@ label start:
 
     e "Huh? What do you mean?"
 
+    n "His demeanor shifts. He's more...fragile."
+
     menu:
-        "It's 3am."
+        "It's 3am.":
             e "So what?"
 
-        "Why are we even at school?"
+            mc "The hell do you mean, 'so what?'"
 
+            e "I just wanted to..."
 
+            mc "What?"
+
+            e "Neevermind."
+
+        "Why are we even at school?":
+            e "It's for the..."
+
+            mc "Memories?"
+
+            e "No. No, nevermind."
+    
+    mc "So I guess we're just here to hang out, then."
+
+    e "Yeah. That, yeah."
+
+    n "It's obvious that he's here for something more."
+
+    menu:
+        "Are you feeling okay?":
+            e "Yeah! Definitely! Haha..."
+
+            e "Yeah, no, I don't have a poker face. How do you do it?"
+
+            n "He looks at your hands."
+
+            e "How do you do it?"
+
+            mc "Do what?"
+
+            e "Your face. It's hiding everything."
+
+            mc "Eli?"
+
+        "Hey, you sure about that?":
+            e "Yeah...yeah, I guess."
+
+        "Shut up. You're hiding something from me.":
+            e "Ha! You can't be serious right now."
+
+            e "[player_name], it's been two years."
+
+            e "Seven hundred thirty days."
+
+            e "TWO YEARS."
+
+            e "And I still remember {i}everything.{/i}"
+
+            e "But you've forgotten, haven't you?"
+
+            e "Everyone always forgets."
 
     return
