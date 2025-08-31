@@ -31,6 +31,7 @@ label start:
 
     menu:
         "It's 3am."
+            e "So what?"
 
         "Why are we even at school?"
 
