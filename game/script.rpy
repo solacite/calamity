@@ -4,7 +4,7 @@ define n = Character(None, what_style=renpy.style.say_thought)
 
 default player_name = ("XXX")
 
-int ending
+default ending = 1
 
 label start:
 
@@ -104,7 +104,7 @@ label calm_eli:
 
 label break_eli:
 
-label eli_rant:
+label rant_eli:
     ending = 3
 
     mc "Forget what? Eli, what are you even talking about?"
