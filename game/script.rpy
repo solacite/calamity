@@ -1,8 +1,10 @@
 ﻿define e = Character("Elias")
 define mc = Character("[player_name]")
-define n = Character(None, what_style="italic_text")
+define n = Character(None, what_style=renpy.style.say_thought)
 
 default player_name = ("XXX")
+
+int ending
 
 label start:
 
@@ -42,7 +44,7 @@ label start:
 
             mc "What?"
 
-            e "Neevermind."
+            e "Nevermind."
 
         "Why are we even at school?":
             e "It's for the..."
@@ -58,6 +60,7 @@ label start:
     n "It's obvious that he's here for something more."
 
     menu:
+        # calm friend
         "Are you feeling okay?":
             e "Yeah! Definitely! Haha..."
 
@@ -73,15 +76,17 @@ label start:
 
             mc "Eli?"
 
+        # breaks down
         "Hey, you sure about that?":
             e "Yeah...yeah, I guess."
 
+        # remembers
         "Shut up. You're hiding something from me.":
             e "Ha! You can't be serious right now."
 
             e "[player_name], it's been two years."
 
-            e "Seven hundred thirty days."
+            e "Seven hundred and thirty days."
 
             e "TWO YEARS."
 
@@ -90,5 +95,44 @@ label start:
             e "But you've forgotten, haven't you?"
 
             e "Everyone always forgets."
+
+            jump rant_eli
+
+            n "You shouldn't have said that..."
+
+label calm_eli:
+
+label break_eli:
+
+label eli_rant:
+    ending = 3
+
+    mc "Forget what? Eli, what are you even talking about?"
+
+    e "No. No, I can't do this."
+
+    mc "Eli, what's going on?"
+
+    e "I hate December."
+
+    n "Get him to tell you what he means."
+
+    menu:
+        "But why?":
+            ending = 4
+
+            e "Ha!"
+
+            e "Wouldn't you like to know."
+
+            e "[player_name]."
+        
+        "It's just a month.":
+            e "[player_name]."
+
+            n "You can see two years' worth of unspilled despair rising from the depths of sunken eyes."
+
+            e "It's everything."
+
 
     return
