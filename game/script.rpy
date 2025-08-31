@@ -1,6 +1,6 @@
 ﻿define e = Character("Elias")
 define mc = Character("[player_name]")
-define n = Character("")
+define n = Character(None)
 
 default player_name = ("XXX")
 
@@ -105,7 +105,7 @@ label calm_eli:
 label break_eli:
 
 label rant_eli:
-    default ending = 3
+    $ ending = 3
 
     mc "Forget what? Eli, what are you even talking about?"
 
@@ -119,7 +119,7 @@ label rant_eli:
 
     menu:
         "But why?":
-            default ending = 4
+            $ ending = 4
 
             e "Ha!"
 
