@@ -105,7 +105,7 @@ label calm_eli:
 label break_eli:
 
 label rant_eli:
-    ending = 3
+    default ending = 3
 
     mc "Forget what? Eli, what are you even talking about?"
 
@@ -119,7 +119,7 @@ label rant_eli:
 
     menu:
         "But why?":
-            ending = 4
+            default ending = 4
 
             e "Ha!"
 
