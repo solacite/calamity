@@ -1,4 +1,7 @@
 ﻿define e = Character("Elias")
+define mc = Character("[player_name]")
+
+default player_name = ("XXX")
 
 label start:
 
@@ -14,8 +17,23 @@ label start:
 
     # show elias happy
 
-    e "You've created a new Ren'Py game."
+    # add name asking thing
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    $ player_name = renpy.input("What is your name?", length=20)
+
+    mc "Elias. Why'd you call me here?"
+
+    e "Well. Am I not allowed to talk to you or something?"
+
+    mc "No, that's not it. It just seems a little out of the blue..."
+
+    e "Huh? What do you mean?"
+
+    menu:
+        "It's 3am."
+
+        "Why are we even at school?"
+
+
 
     return
