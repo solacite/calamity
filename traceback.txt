@@ -1,0 +1,41 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 29, in script
+    show eli 0.5
+Exception: Image 'eli' does not accept attributes '0 .5'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "game/script.rpy", line 29, in script
+    show eli 0.5
+  File "renpy/ast.py", line 1357, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/ast.py", line 730, in show_imspec
+    renpy.config.show(
+    ~~~~~~~~~~~~~~~~~^
+        name, at_list=at_list, layer=layer, what=expression, zorder=zorder, tag=tag, behind=behind, atl=atl
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "renpy/exports/displayexports.py", line 486, in show
+    if not base.find_target() and renpy.config.missing_show:
+           ~~~~~~~~~~~~~~~~^^                               
+  File "renpy/display/image.py", line 444, in find_target
+    self.target = target._duplicate(a)
+                  ~~~~~~~~~~~~~~~~~^^^
+  File "renpy/display/displayable.py", line 253, in _duplicate
+    args.extraneous()
+    ~~~~~~~~~~~~~~~^^
+  File "renpy/display/displayable.py", line 110, in extraneous
+    raise Exception(
+    ...<4 lines>...
+    )
+Exception: Image 'eli' does not accept attributes '0 .5'.
+
+Windows-11-10.0.26100-SP0 AMD64
+Ren'Py 8.4.1.25072401
+Calamity 1.0
+Sun Aug 31 17:25:13 2025

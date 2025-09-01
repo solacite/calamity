@@ -4,7 +4,19 @@ define n = Character(None)
 
 default player_name = ("XXX")
 
+define gui.text_font = "fonts/SourceCodePro-Regular.ttf"
+
 default ending = 1
+
+transform small_size:
+    xysize (1800, 1800)
+    xalign 0.5
+    yalign 0.5
+    fit "contain"
+
+transform fit:
+    xysize (1920, 1080)
+    fit "cover"
 
 label start:
 
@@ -12,7 +24,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg grey at fit
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -26,17 +38,19 @@ label start:
 
     mc "Elias. Why'd you call me here?"
 
+    show eli at small_size
+
     e "Well. Am I not allowed to talk to you or something?"
 
     mc "No, that's not it. It just seems a little out of the blue..."
 
     e "Huh? What do you mean?"
 
-    n "His demeanor shifts. He's more...fragile."
-
     menu:
         "It's 3am.":
             e "So what?"
+
+            show eli shock at small_size
 
             mc "The hell do you mean, 'so what?'"
 
@@ -44,12 +58,18 @@ label start:
 
             mc "What?"
 
+            show eli at small_size
+
             e "Nevermind."
 
         "Why are we even at school?":
+            show eli squint at small_size
+
             e "It's for the..."
 
             mc "Memories?"
+
+            show eli at small_size
 
             e "No. No, nevermind."
     
@@ -62,11 +82,17 @@ label start:
     menu:
         # calm friend
         "Are you feeling okay?":
+            show eli at small_size
+
             e "Yeah! Definitely! Haha..."
+
+            show squint at small_size
 
             e "Yeah, no, I don't have a poker face. How do you do it?"
 
             n "He looks at your hands."
+
+            show eli at small_size
 
             e "How do you do it?"
 
@@ -78,27 +104,37 @@ label start:
 
         # breaks down
         "Hey, you sure about that?":
+            show eli at small_size
+
             e "Yeah...yeah, I guess."
 
         # remembers
         "Shut up. You're hiding something from me.":
+            scene bg grey eye at fit
+
+            show eli tired at small_size
+
             e "Ha! You can't be serious right now."
 
             e "[player_name], it's been two years."
 
             e "Seven hundred and thirty days."
 
+            show eli angry at small_size
+
             e "TWO YEARS."
 
             e "And I still remember {i}everything.{/i}"
+
+            show eli squint at small_size
 
             e "But you've forgotten, haven't you?"
 
             e "Everyone always forgets."
 
-            jump rant_eli
-
             n "You shouldn't have said that..."
+
+            jump rant_eli
 
 label calm_eli:
 
@@ -107,11 +143,15 @@ label break_eli:
 label rant_eli:
     $ ending = 3
 
+    show eli tired at small_size
+
     mc "Forget what? Eli, what are you even talking about?"
 
     e "No. No, I can't do this."
 
     mc "Eli, what's going on?"
+
+    show eli squint at small_size
 
     e "I hate December."
 
@@ -121,6 +161,8 @@ label rant_eli:
         "But why?":
             $ ending = 4
 
+            show eli tired at small_size
+
             e "Ha!"
 
             e "Wouldn't you like to know."
@@ -128,9 +170,10 @@ label rant_eli:
             e "[player_name]."
         
         "It's just a month.":
+
             e "[player_name]."
 
-            n "You can see two years' worth of unspilled despair rising from the depths of sunken eyes."
+            n "You can see two years' worth of despair rising from the depths of his sunken eyes."
 
             e "It's everything."
 

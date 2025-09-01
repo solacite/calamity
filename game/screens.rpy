@@ -209,7 +209,17 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            button:
+                action i.action
+                xmaximum 500
+                ypadding 15
+                
+                text i.caption:
+                    style "choice_button_text"
+                    xmaximum 500
+                    text_align 0.5
+                    xalign 0.5
+                    yalign 0.5
 
 
 style choice_vbox is vbox
@@ -217,17 +227,20 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
-    ypos 405
+    xalign 0.85
+    yalign 0.7
     yanchor 0.5
-
     spacing gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    xmaximum 500
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    layout "subtitle"
+    slow_cps True
+    
 
 
 ## Quick Menu screen ###########################################################
