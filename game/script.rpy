@@ -74,7 +74,7 @@ label start:
 
             e "Yeah! Definitely! Haha..."
 
-            show squint at small_size
+            show eli squint at small_size
 
             e "Yeah, no, I don't have a poker face. How do you do it?"
 
@@ -157,7 +157,7 @@ label calm_eli:
 
             $ ending = 2
 
-        "Don't provoke him"
+        "Don't provoke him":
             mc "..."
 
             e "I don't even know anymore..."
@@ -185,8 +185,6 @@ label break_eli:
     jump backstory
 
 label rant_eli:
-    $ ending = 3
-
     show eli tired at small_size
 
     mc "Forget what? Eli, what are you even talking about?"
@@ -252,9 +250,13 @@ label backstory:
 
     scene bg red eye at fit
 
+    show eli squint at small_size
+
     e "You were there. You saw everything."
 
-    show eli at small_size
+    show cracks at small_size
+
+    show eli tired at small_size
 
     e "I remember now. Your face. You were watching from below."
 
@@ -263,8 +265,6 @@ label backstory:
     e "They thought I was lying. They charged ME with manslaughter."
 
     e "[player_name], I'm 15."
-
-    show eli tired at small_size
 
     e "I'm just 15..."
 
@@ -304,7 +304,11 @@ label backstory:
 
     e "NO! [player_name] - I - NO!"
 
+    show eli evil at small_size
+
     e "IT'S ALL YOUR FAULT SHE DIED!"
+
+    show eli evil blood at small_size
 
     e "YOU COULD HAVE CAUGHT HER!"
     
@@ -329,5 +333,6 @@ label end3:
 
 label end4:
     hide eli
+    hide cracks
     n "Ending 4/4: ATONE"
     return

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 231: expected 'simple_expression' not found.
-    slow_cps = True
-             ^
+File "game/script.rpy", line 160: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Don't provoke him"
+                       ^
 
 Ren'Py Version: Ren'Py 8.4.1.25072401
-Sun Aug 31 19:16:11 2025
+Sun Aug 31 23:09:21 2025
