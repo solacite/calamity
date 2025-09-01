@@ -20,19 +20,7 @@ transform fit:
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg grey at fit
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    # show elias happy
-
-    # add name asking thing
 
     $ player_name = renpy.input("What is your name?", length=20)
 
@@ -108,6 +96,16 @@ label start:
 
             e "Yeah...yeah, I guess."
 
+            e "Yeah..."
+
+            mc "Eli. Eli, are you...?"
+
+            show eli squint at small_size
+
+            e "..."
+
+            jump break_eli
+
         # remembers
         "Shut up. You're hiding something from me.":
             scene bg grey eye at fit
@@ -137,8 +135,54 @@ label start:
             jump rant_eli
 
 label calm_eli:
+    $ ending = 1
+
+    show eli at small_size
+
+    e "I guess...I guess it's alright..."
+
+    mc "Yeah. Yeah, I'd hope so."
+
+    n "But how much do you want to know?"
+
+    menu:
+        "Press further":
+            show eli squint at small_size
+
+            mc "But why did you bring me here?"
+
+            mc "What are you - are you actually fine?"
+
+            mc "Eli?"
+
+            $ ending = 2
+
+        "Don't provoke him"
+            mc "..."
+
+            e "I don't even know anymore..."
+
+    if ending == 1:
+        jump end1
+    
+    jump break_eli
 
 label break_eli:
+    $ ending = 2
+
+    show eli_squint at small_size
+
+    e "Don't...don't talk to me."
+
+    e "Please get out."
+
+    e "I don't want to hear...don't want to hear her voice anymore."
+
+    mc "Who?"
+
+    e "..."
+
+    jump backstory
 
 label rant_eli:
     $ ending = 3
@@ -173,9 +217,117 @@ label rant_eli:
 
             e "[player_name]."
 
-            n "You can see two years' worth of despair rising from the depths of his sunken eyes."
+            n "You can see despair in his eyes."
 
             e "It's everything."
 
+    jump backstory
 
+label backstory:
+    show eli at small_size
+
+    e "You don't remember what they did to her."
+
+    e "They...two years ago, they brought her to the second floor. Of the school, of course."
+
+    show eli squint at small_size
+
+    e "You should know what happens next, right?"
+
+    menu:
+        "No...I really don't. I'm sorry.":
+            e "..."
+
+            e "Alright."
+
+            e "Maybe I was wrong..."
+
+            $ ending = 3
+
+        "Let's just go home for the night.":
+            e "..."
+        
+    if ending == 3:
+        jump end3
+
+    scene bg red eye at fit
+
+    e "You were there. You saw everything."
+
+    show eli at small_size
+
+    e "I remember now. Your face. You were watching from below."
+
+    e "Why didn't you stop them? Why didn't you try to catch her?"
+
+    e "They thought I was lying. They charged ME with manslaughter."
+
+    e "[player_name], I'm 15."
+
+    show eli tired at small_size
+
+    e "I'm just 15..."
+
+    e "It's not over, though."
+
+    e "No."
+
+    e "You're not safe anymore."
+
+    e "I can report you too. You know what, I'll-"
+
+    menu:
+        "Grab him":
+            show eli shock at small_size
+
+            e "NO!"
+
+        "Grab him":
+            show eli shock at small_size
+
+            e "NO!"
+
+        "Grab him":
+            show eli shock at small_size
+
+            e "NO!"
+
+        "Grab him":
+            show eli shock at small_size
+
+            e "NO!"
+
+        "Grab him":
+            show eli shock at small_size
+
+            e "NO!"
+
+    e "NO! [player_name] - I - NO!"
+
+    e "IT'S ALL YOUR FAULT SHE DIED!"
+
+    e "YOU COULD HAVE CAUGHT HER!"
+    
+    e "WHY THE HELL DID YOU RUN AWAY?"
+
+    jump end4
+
+label end1:
+    hide eli
+    n "Ending 1/4: Calm...?"
+    return
+
+label end2:
+    hide eli
+    n "Ending 2/4: Silence"
+    return
+
+label end3:
+    hide eli
+    n "Ending 3/4: It's Okay"
+    return
+
+label end4:
+    hide eli
+    n "Ending 4/4: ATONE"
     return
