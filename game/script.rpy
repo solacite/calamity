@@ -170,7 +170,7 @@ label calm_eli:
 label break_eli:
     $ ending = 2
 
-    show eli_squint at small_size
+    show eli squint at small_size
 
     e "Don't...don't talk to me."
 
@@ -182,7 +182,7 @@ label break_eli:
 
     e "..."
 
-    jump backstory
+    jump end2
 
 label rant_eli:
     show eli tired at small_size
